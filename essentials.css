@@ -1,2 +1,2 @@
-.container{width:calc(100% - 6.66667vw);margin:0 px_to_vw_desktop(64)}
+.container{width:calc(100% - 6.66667vw);margin:0 px_to_vw_desktop(64)}@media(min-width:0em)and (max-width:59.5em){.container{width:calc(100% - 2rem);margin:0 1rem}}
 /*# sourceMappingURL=essentials.css.map */

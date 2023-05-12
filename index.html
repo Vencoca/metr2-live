@@ -29,7 +29,7 @@
 		<div id="smooth-content">
 			<nav class="nav container">
 				<div class="nav__logo">
-					<a href="./"><img src="@/../images/bg/LOGO.svg" alt="Metr&sup2; logo"></a>
+					<a href="./"><img class="nav__logo__img" src="@/../images/bg/LOGO.svg" alt="Metr&sup2; logo"></a>
 				</div>
 				<div class="nav__burger"></div>
 				<div class="nav__menu">
@@ -38,6 +38,31 @@
 					<a class="nav__menu__burger nav__menu__button" href="./contact.html" role="button">
 						<p>Kontakt</p>
 					</a>
+				</div>
+				<div class="nav__menuMobile">
+					<div class="nav__menuMobile__menu">
+						<a href="./" role="button">Úvod</a>
+						<a href="./about.html" role="button">O Metr&sup2; Premium</a>
+						<a href="./property.html" role="button">Nemovitosti</a>
+						<a href="./contact.html" role="button">Kontakt</a>
+					</div>
+					<div class="nav__menuMobile__text">
+						<div class="nav__menuMobile__text__contact">
+							<h1>Kontakt</h1>
+							<a href="tel:+420800155550" rel="noopener" role="button">800 155 550</a>
+							<a href="mailto:info@metr2reality.cz" rel="noopener" role="button">info@metr2reality.cz</a>
+						</div>
+						<div class="nav__menuMobile__text__company">
+							<h1>Údaje</h1>
+							<p>
+								metr2 reality s.r.o.,<br>
+								Litovelská 1340/2c <br>
+								779 00 Olomouc <br>
+								IČ: 27779661 <br>
+								DIČ: CZ27779661 <br>
+							</p>
+						</div>
+					</div>
 				</div>
 			</nav>
 			<section class="hero">
@@ -66,7 +91,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="about">
+			<section class="about container">
 				<p><span>o metr&sup2; premium</span></p>
 				<h1>Poskytujeme kompletní služby při pronájmu, výkupu a prodeji nemovitostí. Hlavní prioritou je maximální kvalita poskytovaných služeb.</h1>
 				<p>Jsme samostatná společnost s výhradně českým kapitálem a zázemím, která působí na trhu s realitami od roku 2006. Zaměřujeme se především na region, který důvěrně známe, tím je město Olomouc a celý Olomoucký kraj. V uplynulých letech jsme však úspěšně zprostředkovali prodej nemalého počtu nemovitostí i v ostatních českých regionech.</p>
@@ -76,20 +101,49 @@
 					<div class="carousel__images__block active">
 						<p>Další nemovitost</p>
 						<img src="@/../images/bg/carousel_1.png" alt="">
-						<p><span>Rodinný dům Olomouc</span></p>
+						<p>
+							<span>Rodinný dům Olomouc</span>
+						</p>
 					</div>
 					<div class="carousel__images__block">
 						<p>Další nemovitost</p>
 						<img src="@/../images/bg/carousel_2.png" alt="">
-						<p><span>Byt Novosadský dvůr</span></p>
+						<p>
+							<span>Byt Novosadský dvůr</span>
+						</p>
 					</div>
 					<div class="carousel__images__block hidden">
 						<p>Další nemovitost</p>
 						<img src="@/../images/bg/carousel_1.png" alt="">
-						<p><span>Lorem, ipsum dolor.</span></p>
+						<p>
+							<span>Lorem, ipsum dolor.</span>
+						</p>
 					</div>
 				</div>
 				<div class="carousel__description">
+					<div class="carousel__description__controls">
+						<div class="carousel__description__controls__elements">
+							<div class="carousel__description__controls__elements__wrap">
+								<div class="carousel__description__controls__elements__wrap__numbers">
+									<p class="carousel__description__controls__elements__wrap__numbers__block">1/3</p>
+									<p class="carousel__description__controls__elements__wrap__numbers__block hidden">2/3</p>
+									<p class="carousel__description__controls__elements__wrap__numbers__block hidden">3/3</p>
+								</div>
+								<div class="carousel__description__controls__elements__wrap__text">
+									<p>Vybraná nemovitost</p>
+								</div>
+							</div>
+							<div class="carousel__description__controls__elements__arrows">
+								<button class="carousel__description__controls__elements__arrows__left">
+									<img src="@/../images/bg/carousel-arrow-left.svg" alt="Left button">
+								</button>
+								<button class="carousel__description__controls__elements__arrows__right">
+									<img src="@/../images/bg/carousel-arrow-right.svg" alt="Right button">
+								</button>
+							</div>
+						</div>
+						<div class="carousel__description__controls__statusline"></div>
+					</div>
 					<div class="carousel__description__text">
 						<p>
 							<span>Vybraná nemovitost</span>
@@ -107,27 +161,9 @@
 							<p>Lorem ipsum dolor sit amet.</p>
 						</div>
 					</div>
-					<div class="carousel__description__controls">
-						<div class="carousel__description__controls__elements">
-							<div class="carousel__description__controls__elements__numbers">
-								<p class="carousel__description__controls__elements__numbers__block">1/3</p>
-								<p class="carousel__description__controls__elements__numbers__block hidden">2/3</p>
-								<p class="carousel__description__controls__elements__numbers__block hidden">3/3</p>
-							</div>
-							<div class="carousel__description__controls__elements__arrows">
-								<button class="carousel__description__controls__elements__arrows__left">
-									<img src="@/../images/bg/carousel-arrow-left.svg" alt="Left button">
-								</button>
-								<button class="carousel__description__controls__elements__arrows__right">
-									<img src="@/../images/bg/carousel-arrow-right.svg" alt="Right button">
-								</button>
-							</div>
-						</div>
-						<div class="carousel__description__controls__statusline"></div>
-					</div>
 				</div>
 			</section>
-			<section class="quote">
+			<section class="container quote">
 				<div class="quote__text">
 					<p>slovo zakladatele</p>
 					<img src="@/../images/bg/quote.svg" alt="Quotation marks">
@@ -141,7 +177,7 @@
 			<section class="picture">
 				<img src="@/../images/bg/picture.png" alt="">
 			</section>
-			<section class="propety">
+			<section class="property">
 				<p>Nemovitosti</p>
 				<h1>Prohlédněte si všechny prémiové nemovitosti</h1>
 			</section>
@@ -149,98 +185,114 @@
 				<div class="commerce__rectangle"></div>
 				<p>Komerční nemovitosti</p>
 				<div class="commerce__content">
-					<div class="commerce__content__left">
-						<div class="commerce__content__item">
-							<img src="@/../images/bg/home1.png" alt="">
-							<h1>Rodinný dům Olomouc</h1>
-							<div class="commerce__content__item__text">
-								<p>pronájem • olomouc</p>
-							</div>
-						</div>
-						<div class="commerce__content__item">
-							<img src="@/../images/bg/home2.png" alt="">
-							<h1>Byt Benidorm - Finestrat</h1>
-							<div class="commerce__content__item__text">
-								<p>prodej • Spojené státy americké</p>
-							</div>
+					<div class="commerce__content__item">
+						<img src="@/../images/bg/home1.png" alt="">
+						<h1>Rodinný dům Olomouc</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • olomouc</p>
 						</div>
 					</div>
-					<div class="commerce__content__right">
-						<div class="commerce__content__item">
-							<img src="@/../images/bg/home3.png" alt="">
-							<h1>Byt Novosadský dvůr</h1>
-							<div class="commerce__content__item__text">
-								<p>pronájem • španělsko</p>
-							</div>
+					<div class="commerce__content__item">
+						<img src="@/../images/bg/home2.png" alt="">
+						<h1>Byt Benidorm - Finestrat</h1>
+						<div class="commerce__content__item__text">
+							<p>prodej • Spojené státy americké</p>
 						</div>
-						<div class="commerce__content__item">
-							<img src="@/../images/bg/home4.png" alt="">
-							<h1>Rodinný dům Olomouc</h1>
-							<div class="commerce__content__item__text">
-								<p>pronájem • olomouc</p>
-							</div>
+					</div>
+					<div class="commerce__content__item">
+						<img src="@/../images/bg/home3.png" alt="">
+						<h1>Byt Novosadský dvůr</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • španělsko</p>
+						</div>
+					</div>
+					<div class="commerce__content__item">
+						<img src="@/../images/bg/home4.png" alt="">
+						<h1>Rodinný dům Olomouc</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • olomouc</p>
 						</div>
 					</div>
 				</div>
 				<div class="commerce__arrow">
 					<button><img src="@/../images/bg/arrow-down.svg" alt=""></button>
-					<p>Zobrazit další</p>
 				</div>
 			</div>
 			<div class="residental">
 				<div class="residental__rectangle"></div>
 				<p>Rezidenční nemovitosti</p>
 				<div class="residental__content">
-					<div class="residental__content__left">
-						<div class="residental__content__item">
-							<img src="@/../images/bg/home1.png" alt="">
-							<h1>Rodinný dům Olomouc</h1>
-							<div class="residental__content__item__text">
-								<p>pronájem • olomouc</p>
-							</div>
-						</div>
-						<div class="residental__content__item">
-							<img src="@/../images/bg/home2.png" alt="">
-							<h1>Byt Benidorm - Finestrat</h1>
-							<div class="residental__content__item__text">
-								<p>prodej • Spojené státy americké</p>
-							</div>
+					<div class="residental__content__item">
+						<img src="@/../images/bg/home1.png" alt="">
+						<h1>Rodinný dům Olomouc</h1>
+						<div class="residental__content__item__text">
+							<p>pronájem • olomouc</p>
 						</div>
 					</div>
-					<div class="residental__content__right">
-						<div class="residental__content__item">
-							<img src="@/../images/bg/home3.png" alt="">
-							<h1>Byt Novosadský dvůr</h1>
-							<div class="residental__content__item__text">
-								<p>pronájem • španělsko</p>
-							</div>
+					<div class="residental__content__item">
+						<img src="@/../images/bg/home2.png" alt="">
+						<h1>Byt Benidorm - Finestrat</h1>
+						<div class="residental__content__item__text">
+							<p>prodej • Spojené státy americké</p>
 						</div>
-						<div class="residental__content__item">
-							<img src="@/../images/bg/home4.png" alt="">
-							<h1>Rodinný dům Olomouc</h1>
-							<div class="residental__content__item__text">
-								<p>pronájem • olomouc</p>
-							</div>
+					</div>
+					<div class="residental__content__item">
+						<img src="@/../images/bg/home3.png" alt="">
+						<h1>Byt Novosadský dvůr</h1>
+						<div class="residental__content__item__text">
+							<p>pronájem • španělsko</p>
+						</div>
+					</div>
+					<div class="residental__content__item">
+						<img src="@/../images/bg/home4.png" alt="">
+						<h1>Rodinný dům Olomouc</h1>
+						<div class="residental__content__item__text">
+							<p>pronájem • olomouc</p>
 						</div>
 					</div>
 				</div>
 				<div class="residental__arrow">
 					<button><img src="@/../images/bg/arrow-down.svg" alt=""></button>
-					<p>Zobrazit další</p>
 				</div>
 			</div>
-			<section class="footer">
+			<section class="footer container">
 				<div class="footer__content">
 					<div class="footer__content__menu">
-						<a class="nav__menu__burger nav__menu__item nav__menu__item-active" href="./" role="button">Úvod</a>
-						<a class="nav__menu__burger nav__menu__item" href="./" role="button">O Metr&sup2; Premium</a>
-						<a class="nav__menu__burger nav__menu__item" href="./about.html" role="button">Nemovitosti</a>
-						<a class="nav__menu__burger nav__menu__button" href="./contact.html" role="button">Kontakt</a>
+						<a href="./" role="button">Úvod</a>
+						<a href="./about.html" role="button">O Metr&sup2; Premium</a>
+						<a href="./property.html" role="button">Nemovitosti</a>
+						<a href="./contact.html" role="button">Kontakt</a>
+					</div>
+					<div class="footer__content__text">
+						<div class="footer__content__text__contact">
+							<h1>Kontakt</h1>
+							<a href="tel:+420800155550" rel="noopener" role="button">800 155 550</a>
+							<a href="mailto:info@metr2reality.cz" rel="noopener" role="button">info@metr2reality.cz</a>
+						</div>
+						<div class="footer__content__text__company">
+							<h1>Údaje</h1>
+							<p>
+								metr2 reality s.r.o.,<br>
+								Litovelská 1340/2c <br>
+								779 00 Olomouc <br>
+								IČ: 27779661 <br>
+								DIČ: CZ27779661 <br>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="footer__holding">
+					<p>Metr2 Premium je členem holdingu Metr2 Reality.</p>
+					<div class="footer__holding__wrap">
+						<div class="footer__holding__wrap__logos">
+							<img src="./images/bg/holding.png" alt="">
+							<img class="footer__holding__wrap__logos-mobile" src="./images/bg/holding.png" alt="">
+						</div>
 					</div>
 				</div>
 				<div class="footer__bottom">
-					<div class="footer__bottom__logo"></div>
-					<div class="footer__bottom__text"></div>
+					<img src="@/../images/bg/logobottom.svg" alt="">
+					<p>All rights reserved</p>
 				</div>
 			</section>
 		</div>
@@ -249,7 +301,7 @@
 	<script type="text/js" src="js/vendor/gsap.min.js"></script>
 	<script type="text/js" src="js/ScrollSmoother.min.js"></script>
 	<script type="text/js" src="js/ScrollTrigger.min.js"></script>
-	<script src="js/scripts.js?202305103723"></script>
+	<script src="js/scripts.js?2023051251"></script>
 </body>
 
 </html>

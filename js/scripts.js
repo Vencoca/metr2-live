@@ -1092,17 +1092,15 @@ let smoother = ScrollSmoother.create({
 
 
 const burger = document.querySelector(".nav__burger");
-const nav_menu = document.querySelector(".nav__menu");
-const burgerItems = document.querySelectorAll(".nav__menu__burger");
+const nav_menu = document.querySelector(".nav__menuMobile");
+const logo = document.querySelector(".nav__logo__img")
 let toggle = false;
 burger.addEventListener("click", showMenu);
 
 function showMenu(){
     burger.classList.toggle("nav__burger-active");
-    nav_menu.classList.toggle("nav__menu-active");
-    burgerItems.forEach(element => {
-        element.classList.toggle("nav__menu__burger-active");
-    });
+    nav_menu.classList.toggle("nav__menuMobile-active");
+    logo.classList.toggle("nav__logo__img-active");
     gsap.to(smoother, {
         scrollTop: smoother.offset("body", "top top"),
         duration: 0.3,
