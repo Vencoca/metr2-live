@@ -1057,7 +1057,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother,CustomEase);
@@ -1108,6 +1108,24 @@ function showMenu(){
     });
     toggle = !toggle;
     smoother.paused(toggle);
+}
+if(document.querySelector(".hero")){
+    const splitLines = new SplitText(".hero__content__text h1", {
+        type: "lines",
+        linesClass: "line"
+      });
+
+      /*
+      gsap.from(splitLines.lines, {
+        yPercent: 200,
+        ease: "power4",
+        onComplete: splitRevert
+      });
+      
+      function splitRevert() {
+        splitLines.revert();
+      }
+      */
 }
 
 
