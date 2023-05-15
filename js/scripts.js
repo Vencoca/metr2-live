@@ -1088,7 +1088,7 @@ let smoother = ScrollSmoother.create({
 
 });
 
-//smoother.paused(true);
+smoother.paused(true);
 
 
 const burger = document.querySelector(".nav__burger");
@@ -1110,26 +1110,254 @@ function showMenu(){
     smoother.paused(toggle);
 }
 if(document.querySelector(".hero")){
-    const splitLines = new SplitText(".hero__content__text h1", {
+    const splitLinesWrap = new SplitText(".hero__content__text h1", {
         type: "lines",
-        linesClass: "line"
-      });
+        linesClass: "hero__line-wrap"
+    });
+    const splitLines = new SplitText(".hero__line-wrap", {
+      type: "lines",
+      linesClass: "hero__line"
+    });
+    function splitRevert() {
+      splitLines.revert();
+      splitLinesWrap.revert();
+    }
 
-      /*
-      gsap.from(splitLines.lines, {
-        yPercent: 200,
-        ease: "power4",
-        onComplete: splitRevert
-      });
-      
-      function splitRevert() {
-        splitLines.revert();
+
+    const loaderTl = gsap.timeline({
+      onComplete: () => {smoother.paused(false);},
+      duration: 1.2,
+    }).pause()
+
+    loaderTl.to(splitLines.lines, {
+      y: 0,
+      opacity: 100,
+      duration: 1.2,
+      ease: "power3.out",
+      onComplete: splitRevert,
+    })
+    loaderTl.to(".hero__content__text p", {
+      y: 0,
+      opacity: 100,
+      ease: "power3.out",
+      duration: 1,
+    })
+    loaderTl.to(".nav",{
+      y: 0,
+      ease: "power3.out",
+      duration: 1,
+    }, "<")
+    loaderTl.to(".hero__content__controls",{
+      y: 0,
+      ease: "power3.out",
+      duration: 1,
+    }, "<")
+
+    window.addEventListener("load", () => {loaderTl.play();})
+
+    let currentNumber = 1;
+    const heroImages = 4;
+    const texts = document.querySelectorAll(".hero__content__controls__text");
+    const heroNumber = document.querySelector(".hero__content__controls__number");
+    const heroButtonRight = document.querySelector(".hero__content__controls__arrows__right");
+    const heroButtonLeft = document.querySelector(".hero__content__controls__arrows__left");
+    const carouselWrap = document.querySelector(".hero__carousel__wrap");
+    heroButtonLeft.addEventListener("click", heroCarouselLeft);
+    heroButtonRight.addEventListener("click", heroCarouselRight);
+    function heroCarouselLeft(){
+      if (currentNumber > 1){
+        currentNumber = currentNumber - 1;
+        heroNumber.textContent = currentNumber + "/" + heroImages;
+        texts[currentNumber].classList.add("hidden")
+        texts[currentNumber - 1].classList.remove("hidden");
+        carouselWrap.style.transform = "translateX(-" + ((currentNumber - 1)*100) + "vw)";
       }
-      */
+    }
+
+    function heroCarouselRight(){
+      if (currentNumber < heroImages){
+        currentNumber = currentNumber + 1;
+        heroNumber.textContent = currentNumber + "/" + heroImages;
+        texts[currentNumber - 2].classList.add("hidden")
+        texts[currentNumber - 1].classList.remove("hidden");
+        carouselWrap.style.transform = "translateX(-" + ((currentNumber - 1)*100) + "vw)";
+      }
+    }
+}
+if(document.querySelector(".about")){
+    
+    const aboutTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".about",
+            start: "top center",
+        }
+    })
+
+    aboutTl.to(".about__wrap", {
+      y: 0,
+      opacity: 100,
+      duration: 2.0,
+      ease: "power3.out",
+    })
+}
+if(document.querySelector(".carousel")){
+    
+    const carouselTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".carousel",
+            start: "top 80%",
+        }
+    })
+
+    carouselTl.from(".carousel__description__text",{
+        yPercent: 100,
+        ease: "power3.out",
+        duration: 1.2,
+    });
+    carouselTl.from(".carousel__images__block:not(.active)",{
+        yPercent: 100,
+        ease: "power3.out",
+        duration: 1.2,
+    }, "<");
+}
+if (document.querySelector(".picture")) {
+    let mm = gsap.matchMedia();
+    mm.add({
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isMax1440p: '(min-width: 953px) and (max-width: 1500px)',
+        isMin1440p: '(min-width: 1501px)',
+        isTablet: '(min-width: 768px) and (max-width: 952px)',
+        isMobile: '(max-width: 952px)',
+    }, (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+        const elements = document.querySelectorAll('.picture[data-speed]');
+        if (isMobile) {
+            elements.forEach(element => {
+                element.setAttribute('data-speed', '1');
+            });
+        } else {
+            elements.forEach(element => {
+                element.setAttribute('data-speed', '0.5');
+            });
+        }
+        return () => {
+            // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+            // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+        }
+    });
+
+}
+if (document.querySelector(".commerce")) {
+    let mm = gsap.matchMedia();
+    mm.add({
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isMax1440p: '(min-width: 953px) and (max-width: 1500px)',
+        isMin1440p: '(min-width: 1501px)',
+        isTablet: '(min-width: 768px) and (max-width: 952px)',
+        isMobile: '(max-width: 952px)',
+    }, (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+        const elements = document.querySelectorAll('.commerce__content__item[data-speed]');
+        if (isMobile) {
+            elements.forEach(element => {
+                element.setAttribute('data-speed', '1');
+            });
+        } else {
+            elements.forEach(element => {
+                element.setAttribute('data-speed', '1.2');
+            });
+        }
+        return () => {
+            // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+            // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+        }
+    });
+
+    const button = document.getElementById("commerce__button");
+    const items = document.querySelectorAll('.commerce__content__item');
+    button.addEventListener("click", revealCommerce);
+    let revealId = 3;
+    let more = true;
+    function revealCommerce(){
+        if(more){
+            try {
+                items[revealId + 1].classList.remove("hidden");
+                items[revealId + 2].classList.remove("hidden");
+                items[revealId + 3].classList.remove("hidden");
+                items[revealId + 4].classList.remove("hidden");
+            } catch (error) {
+                more = false;
+            }
+            revealId = revealId + 4;
+            ScrollTrigger.refresh()
+        }
+    }
+}
+if (document.querySelector(".residental")) {
+    let mm = gsap.matchMedia();
+    mm.add({
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isMax1440p: '(min-width: 953px) and (max-width: 1500px)',
+        isMin1440p: '(min-width: 1501px)',
+        isTablet: '(min-width: 768px) and (max-width: 952px)',
+        isMobile: '(max-width: 952px)',
+    }, (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+        const elements = document.querySelectorAll('.residental__content__item[data-speed]');
+        if (isMobile) {
+            elements.forEach(element => {
+                element.setAttribute('data-speed', '1');
+            });
+        } else {
+            elements.forEach(element => {
+                element.setAttribute('data-speed', '1.2');
+            });
+        }
+        return () => {
+            // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+            // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+        }
+    });
+
+    const button = document.getElementById("residental__button");
+    const items = document.querySelectorAll('.residental__content__item');
+    button.addEventListener("click", revealCommerce);
+    let revealId = 3;
+    let more = true;
+    function revealCommerce(){
+        if(more){
+            try {
+                items[revealId + 1].classList.remove("hidden");
+                items[revealId + 2].classList.remove("hidden");
+                items[revealId + 3].classList.remove("hidden");
+                items[revealId + 4].classList.remove("hidden");
+            } catch (error) {
+                more = false;
+            }
+            revealId = revealId + 4;
+            ScrollTrigger.refresh()
+        }
+    }
+}
+
+window.addEventListener("resize", setVH);
+
+window.addEventListener("load", setVH);
+
+const r = document.querySelector(':root');
+
+
+
+function setVH (e){
+
+    r.style.setProperty('--vh', window.innerHeight + "px");
+
 }
 
 
-//=include custom/*.js
 
 
 

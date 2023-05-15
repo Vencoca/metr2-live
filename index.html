@@ -68,7 +68,12 @@
 			<section class="hero">
 				<div class="hero__carousel">
 					<div class="hero__carousel__filter"></div>
-					<img src="@/../images/bg/hero1.png" alt="">
+					<div class="hero__carousel__wrap">
+						<img src="@/../images/bg/hero1.png" alt="">
+						<img src="@/../images/bg/hero2.png" alt="">
+						<img src="@/../images/bg/hero3.png" alt="">
+						<img src="@/../images/bg/hero1.png" alt="">
+					</div>
 				</div>
 				<div class="hero__content container">
 					<div class="hero__content__text">
@@ -77,14 +82,17 @@
 					</div>
 					<div class="hero__content__controls">
 						<div class="hero__content__controls__description">
-							<p class="hero__content__controls__number">1/5</p>
+							<p class="hero__content__controls__number">1/4</p>
 							<p class="hero__content__controls__text">Rodinný dům Olomouc</p>
+							<p class="hero__content__controls__text hidden">Rodinný dům Praha</p>
+							<p class="hero__content__controls__text hidden">Rodinný dům Ostrava</p>
+							<p class="hero__content__controls__text hidden">Rodinný dům Kolín</p>
 						</div>
 						<div class="hero__content__controls__arrows">
 							<button class="hero__content__controls__arrows__left">
 								<img src="@/../images/bg/arrow-left.svg" alt="Left button">
 							</button>
-							<button class="hero__conetnt__controls__arrows__right">
+							<button class="hero__content__controls__arrows__right">
 								<img src="@/../images/bg/arrow-right.svg" alt="Right button">
 							</button>
 						</div>
@@ -92,9 +100,11 @@
 				</div>
 			</section>
 			<section class="about container">
-				<p><span>o metr&sup2; premium</span></p>
-				<h1>Poskytujeme kompletní služby při pronájmu, výkupu a prodeji nemovitostí. Hlavní prioritou je maximální kvalita poskytovaných služeb.</h1>
-				<p>Jsme samostatná společnost s výhradně českým kapitálem a zázemím, která působí na trhu s realitami od roku 2006. Zaměřujeme se především na region, který důvěrně známe, tím je město Olomouc a celý Olomoucký kraj. V uplynulých letech jsme však úspěšně zprostředkovali prodej nemalého počtu nemovitostí i v ostatních českých regionech.</p>
+				<div class="about__wrap">
+					<p><span>o metr&sup2; premium</span></p>
+					<h1>Poskytujeme kompletní služby při pronájmu, výkupu a prodeji nemovitostí. Hlavní prioritou je maximální kvalita poskytovaných služeb.</h1>
+					<p>Jsme samostatná společnost s výhradně českým kapitálem a zázemím, která působí na trhu s realitami od roku 2006. Zaměřujeme se především na region, který důvěrně známe, tím je město Olomouc a celý Olomoucký kraj. V uplynulých letech jsme však úspěšně zprostředkovali prodej nemalého počtu nemovitostí i v ostatních českých regionech.</p>
+				</div>
 			</section>
 			<section class="carousel container">
 				<div class="carousel__images">
@@ -174,7 +184,7 @@
 					<img src="@/../images/bg/owner.png" alt="Mgr. Martin Minář">
 				</div>
 			</section>
-			<section class="picture">
+			<section class="picture" data-speed="0.5">
 				<img src="@/../images/bg/picture.png" alt="">
 			</section>
 			<section class="property">
@@ -185,28 +195,84 @@
 				<div class="commerce__rectangle"></div>
 				<p>Komerční nemovitosti</p>
 				<div class="commerce__content">
-					<div class="commerce__content__item">
+					<div id="commerce_1" class="commerce__content__item">
 						<img src="@/../images/bg/home1.png" alt="">
 						<h1>Rodinný dům Olomouc</h1>
 						<div class="commerce__content__item__text">
 							<p>pronájem • olomouc</p>
 						</div>
 					</div>
-					<div class="commerce__content__item">
+					<div id="commerce_2" class="commerce__content__item" data-speed="1.2">
 						<img src="@/../images/bg/home2.png" alt="">
 						<h1>Byt Benidorm - Finestrat</h1>
 						<div class="commerce__content__item__text">
 							<p>prodej • Spojené státy americké</p>
 						</div>
 					</div>
-					<div class="commerce__content__item">
+					<div id="commerce_3" class="commerce__content__item">
 						<img src="@/../images/bg/home3.png" alt="">
 						<h1>Byt Novosadský dvůr</h1>
 						<div class="commerce__content__item__text">
 							<p>pronájem • španělsko</p>
 						</div>
 					</div>
-					<div class="commerce__content__item">
+					<div id="commerce_4" class="commerce__content__item" data-speed="1.2">
+						<img src="@/../images/bg/home4.png" alt="">
+						<h1>Rodinný dům Olomouc</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • olomouc</p>
+						</div>
+					</div>
+					<div id="commerce_5" class="commerce__content__item hidden">
+						<img src="@/../images/bg/home1.png" alt="">
+						<h1>Rodinný dům Olomouc</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • olomouc</p>
+						</div>
+					</div>
+					<div id="commerce_6" class="commerce__content__item hidden" data-speed="1.2">
+						<img src="@/../images/bg/home2.png" alt="">
+						<h1>Byt Benidorm - Finestrat</h1>
+						<div class="commerce__content__item__text">
+							<p>prodej • Spojené státy americké</p>
+						</div>
+					</div>
+					<div id="commerce_7" class="commerce__content__item hidden">
+						<img src="@/../images/bg/home3.png" alt="">
+						<h1>Byt Novosadský dvůr</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • španělsko</p>
+						</div>
+					</div>
+					<div id="commerce_8" class="commerce__content__item hidden" data-speed="1.2">
+						<img src="@/../images/bg/home4.png" alt="">
+						<h1>Rodinný dům Olomouc</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • olomouc</p>
+						</div>
+					</div>
+					<div id="commerce_9" class="commerce__content__item hidden">
+						<img src="@/../images/bg/home1.png" alt="">
+						<h1>Rodinný dům Olomouc</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • olomouc</p>
+						</div>
+					</div>
+					<div id="commerce_10" class="commerce__content__item hidden" data-speed="1.2">
+						<img src="@/../images/bg/home2.png" alt="">
+						<h1>Byt Benidorm - Finestrat</h1>
+						<div class="commerce__content__item__text">
+							<p>prodej • Spojené státy americké</p>
+						</div>
+					</div>
+					<div id="commerce_11" class="commerce__content__item hidden">
+						<img src="@/../images/bg/home3.png" alt="">
+						<h1>Byt Novosadský dvůr</h1>
+						<div class="commerce__content__item__text">
+							<p>pronájem • španělsko</p>
+						</div>
+					</div>
+					<div id="commerce_12" class="commerce__content__item hidden" data-speed="1.2">
 						<img src="@/../images/bg/home4.png" alt="">
 						<h1>Rodinný dům Olomouc</h1>
 						<div class="commerce__content__item__text">
@@ -215,7 +281,7 @@
 					</div>
 				</div>
 				<div class="commerce__arrow">
-					<button><img src="@/../images/bg/arrow-down.svg" alt=""></button>
+					<button id="commerce__button"><img src="@/../images/bg/arrow-down.svg" alt=""></button>
 				</div>
 			</div>
 			<div class="residental">
@@ -229,7 +295,7 @@
 							<p>pronájem • olomouc</p>
 						</div>
 					</div>
-					<div class="residental__content__item">
+					<div class="residental__content__item" data-speed="1.2">
 						<img src="@/../images/bg/home2.png" alt="">
 						<h1>Byt Benidorm - Finestrat</h1>
 						<div class="residental__content__item__text">
@@ -243,7 +309,7 @@
 							<p>pronájem • španělsko</p>
 						</div>
 					</div>
-					<div class="residental__content__item">
+					<div class="residental__content__item" data-speed="1.2">
 						<img src="@/../images/bg/home4.png" alt="">
 						<h1>Rodinný dům Olomouc</h1>
 						<div class="residental__content__item__text">
@@ -252,10 +318,10 @@
 					</div>
 				</div>
 				<div class="residental__arrow">
-					<button><img src="@/../images/bg/arrow-down.svg" alt=""></button>
+					<button id="residental__button"><img src="@/../images/bg/arrow-down.svg" alt=""></button>
 				</div>
 			</div>
-			<section class="footer container">
+			<section class="footer container" data-speed="0.5">
 				<div class="footer__content">
 					<div class="footer__content__menu">
 						<a href="./" role="button">Úvod</a>
@@ -301,7 +367,7 @@
 	<script type="text/js" src="js/vendor/gsap.min.js"></script>
 	<script type="text/js" src="js/ScrollSmoother.min.js"></script>
 	<script type="text/js" src="js/ScrollTrigger.min.js"></script>
-	<script src="js/scripts.js?20230512284"></script>
+	<script src="js/scripts.js?20230515799"></script>
 </body>
 
 </html>
