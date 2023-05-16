@@ -1123,8 +1123,12 @@ home_buttons.forEach(element => {
             duration: 1,
             ease: "inOut",
         });
+        burger.classList.remove("nav__burger-active");
+        nav_menu.classList.remove("nav__menuMobile-active");
+        logo.classList.remove("nav__logo__img-active");
+        smoother.paused(false);
     });
-    smoother.paused(false);
+
 });
 about_buttons.forEach(element => {
     element.addEventListener("click", (e) => {
@@ -1134,8 +1138,11 @@ about_buttons.forEach(element => {
             duration: 1,
             ease: "inOut",
         });
+        burger.classList.remove("nav__burger-active");
+        nav_menu.classList.remove("nav__menuMobile-active");
+        logo.classList.remove("nav__logo__img-active");
+        smoother.paused(false);
     });
-    smoother.paused(false);
 });
 propety_buttons.forEach(element => {
     element.addEventListener("click", (e) => {
@@ -1145,6 +1152,9 @@ propety_buttons.forEach(element => {
             duration: 1,
             ease: "inOut",
         });
+        burger.classList.remove("nav__burger-active");
+        nav_menu.classList.remove("nav__menuMobile-active");
+        logo.classList.remove("nav__logo__img-active");
         smoother.paused(false);
     });
 });
@@ -1156,8 +1166,11 @@ contact_buttons.forEach(element => {
             duration: 1,
             ease: "inOut",
         });
+        burger.classList.remove("nav__burger-active");
+        nav_menu.classList.remove("nav__menuMobile-active");
+        logo.classList.remove("nav__logo__img-active");
+        smoother.paused(false);
     });
-    smoother.paused(false);
 });
 if(document.querySelector(".hero")){
     const splitLinesWrap = new SplitText(".hero__content__text h1", {
