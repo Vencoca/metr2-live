@@ -1109,6 +1109,56 @@ function showMenu(){
     toggle = !toggle;
     smoother.paused(toggle);
 }
+
+const home_buttons = document.querySelectorAll(".button-home")
+const about_buttons = document.querySelectorAll(".button-about")
+const propety_buttons = document.querySelectorAll(".button-property")
+const contact_buttons = document.querySelectorAll(".button-contact")
+
+home_buttons.forEach(element => {
+    element.addEventListener("click", (e) => {
+        e.preventDefault();
+        gsap.to(smoother, {
+            scrollTop: smoother.offset(".hero", "top top"),
+            duration: 1,
+            ease: "inOut",
+        });
+    });
+    smoother.paused(false);
+});
+about_buttons.forEach(element => {
+    element.addEventListener("click", (e) => {
+        e.preventDefault();
+        gsap.to(smoother, {
+            scrollTop: smoother.offset(".about", "top top"),
+            duration: 1,
+            ease: "inOut",
+        });
+    });
+    smoother.paused(false);
+});
+propety_buttons.forEach(element => {
+    element.addEventListener("click", (e) => {
+        e.preventDefault();
+        gsap.to(smoother, {
+            scrollTop: smoother.offset(".property", "top top"),
+            duration: 1,
+            ease: "inOut",
+        });
+        smoother.paused(false);
+    });
+});
+contact_buttons.forEach(element => {
+    element.addEventListener("click", (e) => {
+        e.preventDefault();
+        gsap.to(smoother, {
+            scrollTop: smoother.offset("body", "bottom bottom"),
+            duration: 1,
+            ease: "inOut",
+        });
+    });
+    smoother.paused(false);
+});
 if(document.querySelector(".hero")){
     const splitLinesWrap = new SplitText(".hero__content__text h1", {
         type: "lines",
@@ -1156,8 +1206,9 @@ if(document.querySelector(".hero")){
     window.addEventListener("load", () => {loaderTl.play();})
 
     let currentNumber = 1;
-    const heroImages = 4;
+    
     const texts = document.querySelectorAll(".hero__content__controls__text");
+    const heroImages = texts.length;
     const heroNumber = document.querySelector(".hero__content__controls__number");
     const heroButtonRight = document.querySelector(".hero__content__controls__arrows__right");
     const heroButtonLeft = document.querySelector(".hero__content__controls__arrows__left");
@@ -1213,12 +1264,81 @@ if(document.querySelector(".carousel")){
         yPercent: 100,
         ease: "power3.out",
         duration: 1.2,
-    });
-    carouselTl.from(".carousel__images__block:not(.active)",{
+        onComplete: function () {
+            gsap.set(this.targets(), { clearProps: "all" });
+        }    
+    } , "<");
+    carouselTl.from(".carousel__images__block:not(.right)",{
         yPercent: 100,
         ease: "power3.out",
         duration: 1.2,
+        onComplete: function () {
+            gsap.set(this.targets(), { clearProps: "all" });
+            let blocks = document.querySelectorAll(".carousel__images__block");
+            blocks.forEach(element => {
+               element.classList.add("carousel__images__block-transition") 
+            });
+        }    
     }, "<");
+
+
+    const carouselButtonLeft = document.querySelector(".carousel__description__controls__elements__arrows__left");
+    const carouselButtonRight = document.querySelector(".carousel__description__controls__elements__arrows__right");
+    const numbers = document.querySelectorAll(".carousel__description__controls__elements__wrap__numbers__block");
+    const description = document.querySelectorAll(".carousel__description__text__block");
+    const blocks = document.querySelectorAll(".carousel__images__block");
+    let currentNumber = 0;
+    const numOfBlocks = blocks.length;
+    carouselButtonLeft.addEventListener("click", carouselLeft);
+    carouselButtonRight.addEventListener("click", carouselRight);
+    function carouselLeft(){    
+        if (currentNumber > 0){
+            currentNumber = currentNumber - 1;
+            numbers[currentNumber + 1].classList.add("hidden");
+            numbers[currentNumber + 1].classList.remove("carousel__description__controls__elements__wrap__numbers__block-active");
+            numbers[currentNumber].classList.remove("hidden");
+            numbers[currentNumber].classList.add("carousel__description__controls__elements__wrap__numbers__block-active");
+            description[currentNumber + 1].classList.add("hidden")
+            description[currentNumber + 1].classList.add("carousel__description__text__block-hidden")
+            description[currentNumber].classList.remove("hidden");
+            description[currentNumber].classList.remove("carousel__description__text__block-hidden");
+
+            blocks[currentNumber + 1].classList.remove("right");
+            blocks[currentNumber].classList.remove("hidden");    
+            blocks[currentNumber].classList.add("right")
+            blocks[currentNumber].classList.remove("scaled");
+            blocks[currentNumber].classList.add("active")
+            blocks[currentNumber + 1].classList.remove("active")
+            if(currentNumber + 2 <= numOfBlocks - 1){
+                blocks[currentNumber + 2].classList.add("hidden");
+            }
+          }
+    }
+    function carouselRight(){
+        if (currentNumber < numOfBlocks - 1){
+            currentNumber = currentNumber + 1;
+            numbers[currentNumber - 1].classList.remove("carousel__description__controls__elements__wrap__numbers__block-active");
+            numbers[currentNumber - 1].classList.add("hidden")
+            numbers[currentNumber].classList.remove("hidden");
+            numbers[currentNumber].classList.add("carousel__description__controls__elements__wrap__numbers__block-active");
+            description[currentNumber - 1].classList.add("hidden")
+            description[currentNumber].classList.remove("hidden");
+            description[currentNumber - 1].classList.add("carousel__description__text__block-hidden")
+            description[currentNumber].classList.remove("carousel__description__text__block-hidden");
+
+            blocks[currentNumber ].classList.add("moving");
+            if (currentNumber + 1 <= numOfBlocks - 1){
+                blocks[currentNumber + 1].classList.remove("moving");
+                blocks[currentNumber + 1].classList.remove("hidden");
+            }    
+            blocks[currentNumber].classList.add("right")
+            blocks[currentNumber].classList.add("active")
+            blocks[currentNumber - 1].classList.remove("active");
+            //blocks[currentNumber - 1].classList.remove("right");
+            blocks[currentNumber - 1].classList.add("scaled");
+            blocks[currentNumber - 1].classList.add("hidden");
+          }
+    }
 }
 if (document.querySelector(".picture")) {
     let mm = gsap.matchMedia();
@@ -1341,6 +1461,33 @@ if (document.querySelector(".residental")) {
             ScrollTrigger.refresh()
         }
     }
+}
+if (document.querySelector(".footer")) {
+    let mm = gsap.matchMedia();
+    mm.add({
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isMax1440p: '(min-width: 953px) and (max-width: 1500px)',
+        isMin1440p: '(min-width: 1501px)',
+        isTablet: '(min-width: 768px) and (max-width: 952px)',
+        isMobile: '(max-width: 952px)',
+    }, (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+        const elements = document.querySelectorAll('.footer[data-speed]');
+        if (isMobile) {
+            elements.forEach(element => {
+                element.setAttribute('data-speed', '1');
+            });
+        } else {
+            elements.forEach(element => {
+                element.setAttribute('data-speed', '0.5');
+            });
+        }
+        return () => {
+            // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+            // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+        }
+    });
 }
 
 window.addEventListener("resize", setVH);
