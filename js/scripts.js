@@ -244,7 +244,7 @@ if(document.querySelector(".hero")){
 
     window.addEventListener("load", () => {loaderTl.play();})
 
-    let currentNumber = 1;
+    let currentId = 0;
     
     const texts = document.querySelectorAll(".hero__content__controls__text");
     const heroImages = texts.length;
@@ -252,27 +252,38 @@ if(document.querySelector(".hero")){
     const heroButtonRight = document.querySelector(".hero__content__controls__arrows__right");
     const heroButtonLeft = document.querySelector(".hero__content__controls__arrows__left");
     const carouselWrap = document.querySelector(".hero__carousel__wrap");
+    const images = document.querySelectorAll(".hero__img");
+    const maxId = heroImages - 1;
     heroButtonLeft.addEventListener("click", heroCarouselLeft);
     heroButtonRight.addEventListener("click", heroCarouselRight);
     function heroCarouselLeft(){
-      if (currentNumber > 1){
-        currentNumber = currentNumber - 1;
-        heroNumber.textContent = currentNumber + "/" + heroImages;
-        texts[currentNumber].classList.add("hidden")
-        texts[currentNumber - 1].classList.remove("hidden");
-        carouselWrap.style.transform = "translateX(-" + ((currentNumber - 1)*100) + "vw)";
-      }
+      currentId = overflowCheck(currentId - 1);
+      updateHero(currentId);  
     }
 
     function heroCarouselRight(){
-      if (currentNumber < heroImages){
-        currentNumber = currentNumber + 1;
-        heroNumber.textContent = currentNumber + "/" + heroImages;
-        texts[currentNumber - 2].classList.add("hidden")
-        texts[currentNumber - 1].classList.remove("hidden");
-        carouselWrap.style.transform = "translateX(-" + ((currentNumber - 1)*100) + "vw)";
-      }
+      currentId = overflowCheck(currentId + 1);
+      updateHero(currentId);
     }
+
+    function updateHero(id){
+      heroNumber.textContent = (currentId+1) + "/" + heroImages;
+      texts[overflowCheck(currentId-1)].classList.add("hidden");
+      texts[currentId].classList.remove("hidden")
+      texts[overflowCheck(currentId+1)].classList.add("hidden");
+      images[overflowCheck(currentId-1)].classList.remove("active");  
+      images[currentId].classList.add("active");
+      images[overflowCheck(currentId+1)].classList.remove("active");  
+    }
+
+    function overflowCheck(id) {
+      if (id < 0) {
+          return (maxId + id + 1);
+      } else if (id > maxId) {
+          return (0 + (id - maxId - 1));
+      }
+      return id;
+  }
 }
 if(document.querySelector(".about")){
     
