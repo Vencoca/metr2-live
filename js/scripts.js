@@ -446,15 +446,22 @@ if (document.querySelector(".commerce")) {
     }, (context) => {
         // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
         let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
-        const elements = document.querySelectorAll('.commerce__content__item[data-speed]');
-        if (isMobile) {
-            elements.forEach(element => {
-                element.setAttribute('data-speed', '1');
-            });
+
+        if (!isMobile) {
+            gsap.from("#commerce_2", {
+                y: 300,
+                //duration: 1.2,
+                //ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#commerce_1",
+                    start: "20% bottom",
+                    end: "70% bottom",
+                    scrub: true,
+                    //markers: true,
+                }
+            })
         } else {
-            elements.forEach(element => {
-                element.setAttribute('data-speed', '1.2');
-            });
+
         }
         return () => {
             // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
@@ -467,19 +474,49 @@ if (document.querySelector(".commerce")) {
     button.addEventListener("click", revealCommerce);
     let revealId = 3;
     let more = true;
-    function revealCommerce(){
-        if(more){
-            try {
-                items[revealId + 1].classList.remove("hidden");
-                items[revealId + 2].classList.remove("hidden");
-                items[revealId + 3].classList.remove("hidden");
-                items[revealId + 4].classList.remove("hidden");
-            } catch (error) {
+    function revealCommerce() {
+        if (more) {
+            let item_list = [];
+            let numOfItems = 4
+            if ((items.length - 1 - revealId) < 4) {
+                numOfItems = items.length - revealId - 1;
                 more = false;
             }
+            for (let i = 0; i < numOfItems; i++) {
+                item_list.push(items[revealId + i + 1])
+            }
+            const revealTl = gsap.timeline({
+                duration: 1.2,
+            }).pause();
+            console.log(item_list.length);
+            item_list.forEach(element => {
+                element.classList.remove("hidden");
+                element.classList.add("progress");
+                revealTl.to(element, {
+                    opacity: 100,
+                    duration: 1.2,
+                    ease: "power3.out",
+                }, "<");
+            });
+            revealTl.play();
             revealId = revealId + 4;
             ScrollTrigger.refresh()
         }
+    }
+
+    function reveal() {
+        const revealTl = gsap.timeline({
+            duration: 1.2,
+        })
+
+        loaderTl.to(splitLines.lines, {
+            opacity: 100,
+            duration: 1.2,
+            ease: "power3.out",
+            onComplete: () => {
+                this.target.classList.remove("progress")
+            },
+        })
     }
 }
 if (document.querySelector(".residental")) {
@@ -493,15 +530,20 @@ if (document.querySelector(".residental")) {
     }, (context) => {
         // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
         let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
-        const elements = document.querySelectorAll('.residental__content__item[data-speed]');
-        if (isMobile) {
-            elements.forEach(element => {
-                element.setAttribute('data-speed', '1');
-            });
+        if (!isMobile) {
+            gsap.from("#residental_2", {
+                y: 300,
+                //duration: 1.2,
+                //ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#residental_1",
+                    start: "20% bottom",
+                    end: "70% bottom",
+                    scrub: true,
+                    //markers: true,
+                }
+            })
         } else {
-            elements.forEach(element => {
-                element.setAttribute('data-speed', '1.2');
-            });
         }
         return () => {
             // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
@@ -514,19 +556,49 @@ if (document.querySelector(".residental")) {
     button.addEventListener("click", revealCommerce);
     let revealId = 3;
     let more = true;
-    function revealCommerce(){
-        if(more){
-            try {
-                items[revealId + 1].classList.remove("hidden");
-                items[revealId + 2].classList.remove("hidden");
-                items[revealId + 3].classList.remove("hidden");
-                items[revealId + 4].classList.remove("hidden");
-            } catch (error) {
+    function revealCommerce() {
+        if (more) {
+            let item_list = [];
+            let numOfItems = 4
+            if ((items.length - 1 - revealId) < 4) {
+                numOfItems = items.length - revealId - 1;
                 more = false;
             }
+            for (let i = 0; i < numOfItems; i++) {
+                item_list.push(items[revealId + i + 1])
+            }
+            const revealTl = gsap.timeline({
+                duration: 1.2,
+            }).pause();
+            console.log(item_list.length);
+            item_list.forEach(element => {
+                element.classList.remove("hidden");
+                element.classList.add("progress");
+                revealTl.to(element, {
+                    opacity: 100,
+                    duration: 1.2,
+                    ease: "power3.out",
+                }, "<");
+            });
+            revealTl.play();
             revealId = revealId + 4;
             ScrollTrigger.refresh()
         }
+    }
+
+    function reveal() {
+        const revealTl = gsap.timeline({
+            duration: 1.2,
+        })
+
+        loaderTl.to(splitLines.lines, {
+            opacity: 100,
+            duration: 1.2,
+            ease: "power3.out",
+            onComplete: () => {
+                this.target.classList.remove("progress")
+            },
+        })
     }
 }
 if (document.querySelector(".footer")) {
