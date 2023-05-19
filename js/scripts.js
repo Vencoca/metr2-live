@@ -603,6 +603,8 @@ if (document.querySelector(".residental")) {
 }
 if (document.querySelector(".footer")) {
     let mm = gsap.matchMedia();
+    const element = document.querySelector('.footer__wrap');
+    const contentHeight = document.querySelector('.footer__wrap__height');
     mm.add({
         // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
         isMax1440p: '(min-width: 953px) and (max-width: 1500px)',
@@ -612,21 +614,25 @@ if (document.querySelector(".footer")) {
     }, (context) => {
         // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
         let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
-        const elements = document.querySelectorAll('.footer[data-speed]');
         if (isMobile) {
-            elements.forEach(element => {
-                element.setAttribute('data-speed', '1');
-            });
+            //element.setAttribute('data-speed', '1');
         } else {
-            elements.forEach(element => {
-                element.setAttribute('data-speed', '0.5');
-            });
+            //element.setAttribute('data-speed', '0.5');
         }
         return () => {
             // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
             // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
         }
     });
+    window.addEventListener("resize", () => {
+        element.style.paddingTop = "calc(100vh - " + contentHeight.clientHeight + "px)";
+        element.style.marginTop = "calc((100vh - " + contentHeight.clientHeight + "px) *-1)";
+    })
+    window.addEventListener("load", () => {
+        element.style.paddingTop = "calc(100vh - " + contentHeight.clientHeight + "px)";
+        element.style.marginTop = "calc((100vh - " + contentHeight.clientHeight + "px) *-1)";
+        ScrollTrigger.refresh()
+    })
 }
 
 window.addEventListener("resize", setVH);

@@ -98,10 +98,16 @@
 						</div>
 						<div class="hero__content__controls__arrows">
 							<button aria-label="left arrow" class="hero__content__controls__arrows__left">
-								<img src="@/../images/bg/arrow-left.svg" alt="Left button">
+								<svg class="img" width="56" height="56" viewbox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M24.89 18.667c0 .989-.938 2.466-1.886 3.706-1.219 1.6-2.675 2.996-4.345 4.062-1.253.798-2.77 1.565-3.992 1.565m0
+                                0c1.221 0 2.74.767 3.992 1.565 1.67 1.067 3.126 2.463 4.345 4.06.948 1.242 1.885 2.722 1.885 3.708M14.667 28h30.666" stroke="#F5F3F1" />
+								</svg>
 							</button>
 							<button aria-label="right arrow" class="hero__content__controls__arrows__right">
-								<img src="@/../images/bg/arrow-right.svg" alt="Right button">
+								<svg class="img" width="56" height="56" viewbox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M31.11 37.333c0-.989.938-2.466 1.886-3.706 1.219-1.6 2.675-2.996 4.345-4.062 1.253-.798 2.77-1.565 3.992-1.565m0
+                                0c-1.221 0-2.74-.767-3.992-1.565-1.67-1.067-3.126-2.463-4.345-4.06-.948-1.242-1.885-2.722-1.885-3.708M41.333 28H10.667" stroke="#F5F3F1" />
+								</svg>
 							</button>
 						</div>
 					</div>
@@ -222,8 +228,10 @@
 					<img src="@/../images/bg/owner.webp" alt="Mgr. Martin Minář">
 				</div>
 			</section>
-			<section class="picture" data-speed="0.5">
-				<img src="@/../images/bg/picture.webp" alt="">
+			<section class="picture">
+				<div class="picture__wrap">
+					<img data-speed="auto" src="@/../images/bg/picture.webp" alt="">
+				</div>
 			</section>
 			<section class="property">
 				<p>Nemovitosti</p>
@@ -359,44 +367,44 @@
 					<button aria-label="load more" id="residental__button"><img src="@/../images/bg/arrow-down.svg" alt=""></button>
 				</div>
 			</div>
-			<section class="footer container" data-speed="0.5">
-				<div class="footer__content">
-					<div class="footer__content__menu">
-						<a class="button-home" href="./" role="button">Úvod</a>
-						<a class="button-about" href="./about.html" role="button">O Metr&sup2; Premium</a>
-						<a class="button-property" href="./property.html" role="button">Nemovitosti</a>
-						<a class="button-contact" href="./contact.html" role="button">Kontakt</a>
-					</div>
-					<div class="footer__content__text">
-						<div class="footer__content__text__contact">
-							<h1>Kontakt</h1>
-							<a href="tel:+420800155550" rel="noopener" role="button">800 155 550</a>
-							<a href="mailto:info@metr2reality.cz" rel="noopener" role="button">info@metr2reality.cz</a>
+			<section class="footer container">
+				<div class="footer__wrap" data-speed="0.5">
+					<div class="footer__wrap__height">
+						<div class="footer__content">
+							<div class="footer__content__menu">
+								<a class="button-home" href="./" role="button">Úvod</a>
+								<a class="button-about" href="./about.html" role="button">O Metr&sup2; Premium</a>
+								<a class="button-property" href="./property.html" role="button">Nemovitosti</a>
+								<a class="button-contact" href="./contact.html" role="button">Kontakt</a>
+							</div>
+							<div class="footer__content__text">
+								<div class="footer__content__text__contact">
+									<h1>Kontakt</h1>
+									<a href="tel:+420800155550" rel="noopener" role="button">800 155 550</a>
+									<a href="mailto:info@metr2reality.cz" rel="noopener" role="button">info@metr2reality.cz</a>
+								</div>
+								<div class="footer__content__text__company">
+									<h1>Údaje</h1>
+									<p>
+										metr2 reality s.r.o.,<br> Litovelská 1340/2c <br> 779 00 Olomouc <br> IČ: 27779661 <br> DIČ: CZ27779661 <br>
+									</p>
+								</div>
+							</div>
 						</div>
-						<div class="footer__content__text__company">
-							<h1>Údaje</h1>
-							<p>
-								metr2 reality s.r.o.,<br>
-								Litovelská 1340/2c <br>
-								779 00 Olomouc <br>
-								IČ: 27779661 <br>
-								DIČ: CZ27779661 <br>
-							</p>
+						<div class="footer__holding">
+							<p>Metr2 Premium je členem holdingu Metr2 Reality.</p>
+							<div class="footer__holding__wrap">
+								<div class="footer__holding__wrap__logos">
+									<img src="./images/bg/holding.webp" alt="">
+									<img class="footer__holding__wrap__logos-mobile" src="./images/bg/holding.webp" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="footer__bottom">
+							<img src="@/../images/bg/logobottom.svg" alt="">
+							<p>All rights reserved</p>
 						</div>
 					</div>
-				</div>
-				<div class="footer__holding">
-					<p>Metr2 Premium je členem holdingu Metr2 Reality.</p>
-					<div class="footer__holding__wrap">
-						<div class="footer__holding__wrap__logos">
-							<img src="./images/bg/holding.webp" alt="">
-							<img class="footer__holding__wrap__logos-mobile" src="./images/bg/holding.webp" alt="">
-						</div>
-					</div>
-				</div>
-				<div class="footer__bottom">
-					<img src="@/../images/bg/logobottom.svg" alt="">
-					<p>All rights reserved</p>
 				</div>
 			</section>
 		</div>
@@ -405,7 +413,7 @@
 	<script type="text/js" src="js/vendor/gsap.min.js"></script>
 	<script type="text/js" src="js/ScrollSmoother.min.js"></script>
 	<script type="text/js" src="js/ScrollTrigger.min.js"></script>
-	<script src="js/scripts.js?202305193973"></script>
+	<script src="js/scripts.js?2023051928"></script>
 </body>
 
 </html>
