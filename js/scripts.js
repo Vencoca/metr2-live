@@ -207,11 +207,12 @@ if(document.querySelector(".hero")){
       ease: "power3.out",
       duration: 1,
     })
-    loaderTl.to(".nav",{
-      y: 0,
+    loaderTl.to(".nav-wrap",{
+      y:0,
+      opacity: 100,
       ease: "power3.out",
       duration: 1,
-    }, "<")
+    },"<" )
     loaderTl.to(".hero__content__controls",{
       y: 0,
       ease: "power3.out",
